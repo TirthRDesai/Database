@@ -1,0 +1,23 @@
+.facts-card {
+	animation: shadowrotate 10s infinite linear;
+	border: none;
+	box-shadow: 16px 16px 34px -17px rgba(71, 85, 105, 1);
+}
+
+@keyframes shadowrotate {
+	0% {
+		box-shadow: 16px 16px 34px -17px rgba(71, 85, 105, 1);
+	}
+	25% {
+		box-shadow: -16px 16px 34px -17px rgba(71, 85, 105, 1);
+	}
+	50% {
+		box-shadow: -16px -16px 34px -17px rgba(71, 85, 105, 1);
+	}
+	75% {
+		box-shadow: 16px -16px 34px -17px rgba(71, 85, 105, 1);
+	}
+	100% {
+		box-shadow: 16px 16px 34px -17px rgba(71, 85, 105, 1);
+	}
+}
