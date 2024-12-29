@@ -21,3 +21,14 @@
 		box-shadow: 16px 16px 34px -17px rgba(71, 85, 105, 1);
 	}
 }
+
+@font-face {
+	font-family: "Nature Beauty";
+	src: url("../fonts/NatureBeautyPersonalUse-9Y2DK.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+.font-nature-beauty {
+	font-family: "Nature Beauty";
+}

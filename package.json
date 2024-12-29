@@ -1,0 +1,9 @@
+{
+	"name": "db-management",
+	"version": "0.1.0",
+	"private": "true",
+	"scripts": {
+		"server": "cd server && npm start",
+		"client": "cd client && npm start"
+	}
+}

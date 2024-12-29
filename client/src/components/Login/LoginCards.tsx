@@ -1,12 +1,5 @@
 import React from "react";
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "../ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import "../../css/login.css";
 
 function LoginCards({ heading, content, area }) {

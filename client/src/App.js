@@ -1,30 +1,23 @@
-// import logo from './logo.svg';
-import { useEffect } from 'react';
-import './App.css';
-import { GoogleLogin, googleLogout } from '@react-oauth/google';
-import LoginCards from './components/Login/LoginCards';
+import React from 'react'
+import LoginPage from './pages/Login'
+import NotFound from './pages/404'
+import Dashboard from './pages/Dashboard'
+import "./css/App.css"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 
 function App() {
-    useEffect(() => {
-        console.log(process.env.REACT_APP_GOOGLE_CLIENT_ID);
-    }, [])
-
     return (
-        <div className="bg-background text-foreground  w-full h-screen grid p-6"
-            style={{
-                gridTemplateColumns: "repeat(3, 1fr)",
-                gridTemplateRows: "repeat(3, 1fr)",
-                gridTemplateAreas: `
-                    "card1 card2 card3"
-                    "card4 login card5"
-                    "card6 card7 card8"
-                `,
-                gap: "1rem"
-            }}
-        >
-            <LoginCards heading="Open Source" content={"We provide open source and easy to use database connection system."} area="card8" />
-        </div>
-    );
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<div>Landing Page</div>} />
+                <Route path="/Dashboard" element={<Dashboard />} />
+                <Route path="/Login" element={<LoginPage />} />
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+        </BrowserRouter>
+
+    )
 }
 
-export default App;
+export default App
