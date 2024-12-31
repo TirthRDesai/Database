@@ -1,17 +1,19 @@
-import { GoogleCredentialResponse } from "@react-oauth/google";
 import { createContext, useContext, useState } from "react";
-import { GoogleAccountProfile } from "../types";
+import { GoogleAccountProfile, TokenType, UserType } from "../types";
 
 type ContextType = {
-	user: any;
+	user: UserType | null;
 	profile: GoogleAccountProfile | null;
 	loading: boolean;
 	error: string | null;
+	server_url: string | null;
+	tokens: TokenType | null;
 
-	setUser: (user: any) => void;
+	setUser: (user: UserType | null) => void;
 	setProfile: (profile: GoogleAccountProfile) => void;
 	setLoading: (loading: boolean) => void;
 	setError: (error: string) => void;
+	setTokens: (tokens: TokenType) => void;
 };
 
 const context = createContext<ContextType>({
@@ -19,18 +21,23 @@ const context = createContext<ContextType>({
 	profile: null,
 	loading: true,
 	error: null,
+	server_url: null,
+	tokens: null,
 
 	setUser: () => {},
 	setProfile: () => {},
 	setLoading: () => {},
 	setError: () => {},
+	setTokens: () => {},
 });
 
 function ContextProvider({ children }: { children: React.ReactNode }) {
-	const [user, setUser] = useState<any>(null);
+	const [user, setUser] = useState<UserType | null>(null);
 	const [profile, setProfile] = useState<GoogleAccountProfile | null>(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
+	const server_url = process.env.REACT_APP_SERVER_URL;
+	const [tokens, setTokens] = useState<TokenType | null>(null);
 
 	return (
 		<context.Provider
@@ -39,10 +46,13 @@ function ContextProvider({ children }: { children: React.ReactNode }) {
 				profile,
 				loading,
 				error,
+				server_url,
+				tokens,
 				setUser,
 				setProfile,
 				setLoading,
 				setError,
+				setTokens,
 			}}
 		>
 			{children}

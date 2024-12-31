@@ -7,3 +7,18 @@ export type GoogleAccountProfile = {
 	name: string;
 	verified_email: boolean;
 };
+
+export type UserType = {
+	access_token: string;
+	authuser: string;
+	expires_in: number;
+	prompt: "consent" | "none" | "select_account";
+	scope: string;
+	token_type: string;
+};
+
+export type TokenType = {
+	access_token: string;
+	expires_in: number;
+	refresh_token: string;
+};
