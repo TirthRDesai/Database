@@ -2,12 +2,10 @@ import React, { useEffect } from "react";
 import { useIndexContext } from "../context/Context";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Button } from "../components/ui/button";
 import { getCookie } from "../lib/handler";
 
 function OAuth2CallbackGoogle() {
-	const { user, setUser, profile, setProfile, server_url } =
-		useIndexContext();
+	const { setProfile, server_url, setTokens } = useIndexContext();
 	const navigate = useNavigate();
 
 	useEffect(() => {
